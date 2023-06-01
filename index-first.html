@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List Comparison</title>
+  <style>
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>List Comparison</h1>
+  
+  <label>List 1:</label>
+  <textarea id="list1" rows="5" cols="30"></textarea>
+  
+  <label>List 2:</label>
+  <textarea id="list2" rows="5" cols="30"></textarea>
+  
+  <button onclick="compareLists()">Compare Lists</button>
+  
+  <label>Same Items:</label>
+  <textarea id="sameItems" rows="5" cols="30" readonly></textarea>
+  
+  <script>
+    function compareLists() {
+      var list1 = document.getElementById("list1").value.split("\n");
+      var list2 = document.getElementById("list2").value.split("\n");
+      
+      var sameItems = list1.filter(function(item) {
+        return list2.includes(item);
+      });
+      
+      document.getElementById("sameItems").value = sameItems.join("\n");
+    }
+  </script>
+</body>
+</html>
